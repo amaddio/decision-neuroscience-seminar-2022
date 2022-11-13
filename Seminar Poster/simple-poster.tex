@@ -93,53 +93,18 @@
 %	Block
 %
 \block[titleleft,roundedcorners=16]{2. Neural Correlates}{
-	\raggedright
-	Hypothesis 1: EBA activation is higher in congruent situation vs non congruent situation (in healthy patients)
+	
 }
 %....................................................................................
 %
 %	Block
 %
-\block[titleleft,roundedcorners=16]{3. Task}{
-	A finger movement task where (healthy) subjects perform better over time, naturally. Reward will be manipulated experimentally by visual correct/incorrect feedback.
+\block[titleleft,roundedcorners=16]{3. Experimental Task}{
+	\raggedright
+	A finger movement task where (healthy) subjects \textbf{perform better over time}, naturally.
 	
-	\tikzstyle{arrow} =  	      [->,outer sep=14pt, draw=ColorOne, text = ColorOne]
-	\tikzstyle{enterexit} =      [rectangle, text width=1.5cm, text = ColorOne, draw=none]
-	\tikzstyle{susceptible} =  [rectangle, text width=3cm, text = ColorThree!0, fill=ColorOne!95]
-	\tikzstyle{infectious} =     [rectangle, text width=3cm, text = ColorTwo, fill=ColorTwo!25]
-	\tikzstyle{recovered} =    [rectangle, text width=3cm, text = ColorThree!0, fill=ColorThree]
-
-	\begin{center}
-	\begin{tikzpicture}[node distance=6cm,text centered,minimum height=3cm, outer sep=4pt,inner sep=0pt,line width=6pt]
-		\node (S) [susceptible] {\Large \textbf{S}};
-		\node (I)  [right of=S,infectious] 	{\Large \textbf{I}};
-		\node (R) [right of=I,recovered] 	{\Large \textbf{R}};
-		
-		\node (enterS) [above of=S,yshift=-1cm,enterexit] 	{ };
-		\node (exitR) [below of=R,yshift=1cm,enterexit] 	{ };
-		
-		\draw [arrow] (enterS)  -- node[anchor=east] {$\pi$}  (S);
-		
-		\draw [arrow] (S)  -- 	node[anchor=south] {$\alpha$}  (I);
-		\draw [arrow] (I)  --  node[anchor=south] {$\beta$}  (R);
-		
-		\draw[arrow] (R) -- node[anchor=east] { $\mu$} (exitR);				
-	 \end{tikzpicture}
-	 \end{center}
-	 
- 	That was a flowchart, and this is the corresponding ODE system:
-	 
-	 \innerblock[bodywidth=0.6\linewidth]{}{	
-	\[
-	\left\{
-	\begin{aligned}
-	    \dot{S} & =  \pi - \alpha S,\\ 
-	    \dot{I}  & =   \alpha S - \beta I,\\
-	    \dot{R} & = \beta I - \mu R. \\
-	\end{aligned}
-	\right.
-	\]
-	 }
+	\textbf{Reward} will be \textbf{manipulated} experimentally by visual correct/incorrect feedback.
+	\includegraphics{Seminar Poster/Figures/task-meme.jpg}
 }
 %..............................................................................................................................................................................................
 %
@@ -152,33 +117,7 @@
 %
 \block[titleleft,roundedcorners=16]{4. Hypothesis 1}{
 	\raggedright
-	This graphic was generated with Tikz:
-	
-	\begin{center}
-	\begin{tikzpicture}[xscale=1.5,yscale=4,line width=4pt,text=ColorTwo]
-		\draw [very thin, gray,step=0.5] (-pi,-1) grid (pi,1);
-		\draw [color=ColorThree,domain=-pi:pi] plot (\x,{sin(\x r)});
-		\draw (pi,0) node[right]{$\sin(x)$} ;
-	\end{tikzpicture}
-	 \end{center}
-
-	\raggedright
-	\lipsum[85]
-	
-	\begin{center}
-	\begin{tabular}{l|c|c|r|}
-		\textbf{Name} & \textbf{Age} & \textbf{Height [cm]} & \textbf{Color}\\
-		\hline
-		María & 25 & 152 & white\\
-		Carlos & 12 & 142 & green\\
-		Francisco & 18 & 172 & blue\\
-		Mario & 21 & 165 & red
-	\end{tabular}
-	\end{center}
-	
-	\vspace{3cm}
-	
-	\lipsum[85]
+	Hypothesis 1: EBA activation is higher in congruent situation vs non congruent situation (in healthy patients)
  }
 %....................................................................................
 %
@@ -186,7 +125,6 @@
 %
 \block[titleleft,roundedcorners=16]{5. Results H1}{
 	\raggedright
-	\lipsum[13]
 }
 %..............................................................................................................................................................................................
 %
@@ -200,11 +138,6 @@
 \block[titleleft,roundedcorners=16]{6. Hypothesis 2}{
 	\raggedright
 	
-	\lipsum[85]
-	\begin{center}
-		\includegraphics[width=0.8\linewidth]{Figures/Image1}
-	\end{center}
-	
 	}
 %....................................................................................
 %
@@ -212,7 +145,7 @@
 %
 \block[titleleft,roundedcorners=16]{7. Results H2}{
 	\raggedright
-	\lipsum[12-13]
+	
  }
 \end{columns} 
 %..............................................................................................................................................................................................
@@ -237,7 +170,7 @@
 \begin{minipage}{0.2\linewidth}
 \centering
 	\includegraphics[height=5cm]{Figures/Logo_GitHub}
-	\includegraphics[height=5cm]{github-link-qr-code}
+	\includegraphics[height=5cm]{Figures/github-link-qr-code}
 \end{minipage}
 }
 %....................................................................................
