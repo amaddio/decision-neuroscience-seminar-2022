@@ -29,6 +29,8 @@
         %r: 22; g: 31; blue: 129
         %r: .08; g: 0.12; blue: 0.50
         \definecolor{MyBlueDark}{rgb}{0.08, 0.12, 0.5}
+        % #707071 r:112, g:112, blue:113
+        \definecolor{MyGray}{rgb}{0.44, 0.44, 0.45}
 	\definecolor{MyGreen}{rgb}{0.33, 0.42, 0.18}
 
 % Theme
@@ -104,7 +106,7 @@
 %
 %	Block
 %
-\block[titleleft,roundedcorners=16]{2. Experimental Set-Up}{
+\block[titleleft,roundedcorners=16]{2. Experimental fMRI Set-Up}{
     %\includegraphics[width=\linewidth]{Seminar Poster/Figures/experiment-set-up.png}
     \includegraphics[width=\linewidth]{Seminar Poster/Figures/experiment-set-up-zoomed-side.png}
 }
@@ -132,8 +134,8 @@
 %
 %	CENTER COLUMN
 %
-%\column{0.34}
-\column{0.67}
+\column{0.34}
+%\column{0.67}
 %....................................................................................
 %
 %	Block
@@ -141,38 +143,33 @@
 \block[titleleft,roundedcorners=16]{4. Experimental Design}{
  \raggedright
  \textbf{Learning} will be \textbf{manipulated} experimentally by visual correct/incorrect feedback.
- \includegraphics[width=\linewidth]{Seminar Poster/Figures/experiment-runs.png}
+ \includegraphics[width=\linewidth]{Seminar Poster/Figures/experiment-runs-compact.png}
+ \includegraphics[width=.10\linewidth]{Seminar Poster/Figures/star.png}
+ manipulation step: false finger moved (experimental trial) 
+ vs correct finger moved (control trial)
+false: participants movement not equal to 
+ observed movement (vision and proprioception incongruence)
+true:  participants movement equal to 
+observed movement (vision and proprioception incongruence)
 }
 %....................................................................................
 %
 % 	Block
 %
-\block[titleleft,roundedcorners=16]{7. Region of Interests}{    
+\block[titleleft,roundedcorners=16]{5. Region of Interests}{
 	\begin{minipage}{0.5\linewidth}
-	    \textbf{EBA}: Congruent versus incongruent visual and proprioceptive information. \\
+            \raggedright
+	    \textbf{Extrastriate Body Area}: Congruent versus incongruent visual and proprioceptive information. \\
             \mbox{} \\
-            \textbf{DLPFC}: Activated in early learning processes. Shift from automatic to cognitive control. State: Consciously (implicitly) learning. \\
+            \textbf{Dorsolateral Prefrontal Cortex}: Activated in early learning processes. Shift from automatic to cognitive control. State: Consciously (implicitly) learning. \\
             \mbox{} \\
             \textbf{Cerebellum}: Activated in late learning processes. Shift from cognitive controlled to automatically retrieved motor action. State: Motor action has been learned.
 	\end{minipage}
 	\begin{minipage}{0.5\linewidth}
-	    \includegraphics[width=0.49\linewidth]{Seminar Poster/Figures/coronar-brain-slice.png}
-            \includegraphics[width=0.49\linewidth]{Seminar Poster/Figures/lateral-brain.png}
+	    \includegraphics[width=\linewidth]{Seminar Poster/Figures/coronar-brain-slice.png}
+            \includegraphics[width=\linewidth]{Seminar Poster/Figures/lateral-brain.png}
 	\end{minipage}
 	
-}
-%....................................................................................
-%
-%	Block
-%
-\block[titleleft,roundedcorners=16]{5. Expected Learning Models}{
- Expected learning models when the visual feedback \textbf{is false}. Learning = move correct finger.
-    \mbox{}\\
-    \begin{itemize}
-        \item \textbf{Hinderance}: slower learning.
-        \item \textbf{Overwrite}: no learning.        
-        \item \textbf{Resilience}: (uninhibited) learning. Humans learn irrelevant the correctness of the visual feedback.
-    \end{itemize}
 }
 %....................................................................................
 %
@@ -190,39 +187,68 @@
 %
 % 	RIGHT COLUMN
 %
-%\column{0.33}
+\column{0.33}
 %....................................................................................
 %
 %	Block
 %
-\block[titleleft,roundedcorners=16]{8. Neurocognitive Learning Models }{
-    \textbf{Hinderance} \\
-    \includegraphics[width=\linewidth]{Seminar Poster/Figures/hinderance.png}
+\block[titleleft,roundedcorners=16]{6. Expected Learning Models}{
+ Expected learning models when the visual feedback \textbf{is false}. Learning = move correct finger.
     \mbox{}\\
-    \textbf{Overwrite} \\
-    \includegraphics[width=\linewidth]{Seminar Poster/Figures/overwrite.png}
-    \mbox{}\\    
-    \textbf{Resilient} \\
-    \includegraphics[width=\linewidth]{Seminar Poster/Figures/resilient.png}
-    \mbox{}\\
+    \begin{itemize}
+        \item \textbf{Hinderance}: slower learning.
+        \item \textbf{Overwrite}: no learning.        
+        \item \textbf{Resilience}: (uninhibited) learning. Humans learn irrelevant the correctness of the visual feedback.
+    \end{itemize}
 }
 %....................................................................................
 %
 %	Block
 %
-\block[titleleft,roundedcorners=16]{9. Hypothesis Confirmation}{
-    \begin{itemize}
-        \item \textbf{H1}: Congruency effects task performance (learning).
-        \begin{itemize}
-            \item Performance (negative error) significantly different for trials after correct vs incorrect feedback.
-            \item \textbf{Resilient} learning model can not explain subject's performance significantly.
+\block[titleleft,roundedcorners=16]{7. Neural Correlates and Learning}{
+    \includegraphics[width=\linewidth]{Seminar Poster/Figures/integrated_learning_models_four_by_four.png}
+    Update rule $V_{t+1}(S_t)=(1-\alpha)V_t(S_t)+\alpha r_t$ \\
+    $V: value$ \\
+    $t: trial$ \\
+    $S: stimulus$ \\
+    $\alpha: learning\:rate$ \\
+    $r: reward$ \\
+
+    The models differ in its $learning\:rate$.
+    
+    \textcolor{MyBlueLight}{overwrite} : $\alpha = 0$ \\
+    \textcolor{MyBlueDark}{hinderance}: $\alpha = .5$ \\
+    \textcolor{MyGray}{resilient}: $\alpha = 1$ \\
+    
+    
+    
+}
+%....................................................................................
+%
+%	Block
+%
+\block[titleleft,roundedcorners=16]{9. Implication}{
+\begin{itemize}
+            \item \textbf{H1}: Congruency effects task performance (learning).
+            \begin{itemize}
+                \item Performance (negative error) significantly different for trials after correct vs incorrect feedback.
+                \item \textbf{Resilient} learning model can not explain subject's performance significantly.
+            \end{itemize}
+            \item \textbf{H2}: Visual input can outweigh proprioceptive information.
+            \begin{itemize}
+                \item \textbf{Overwrite} and/or \textbf{Hinderance} learning model can explain subject's performance best.
+            \end{itemize}
         \end{itemize}
-        \item \textbf{H2}: Visual input can outweigh proprioceptive information.
-        \begin{itemize}
-            \item \textbf{Overwrite} and/or \textbf{Hinderance} learning model can explain subject's performance best.
-        \end{itemize}
-    \end{itemize}
- }
+}
+%....................................................................................
+%
+%	Block
+%
+\block[titleleft,roundedcorners=16]{9. Implication}{
+\raggedright
+Results show how \textbf{strong} false feedback from vision can \textbf{impede} or even \textbf{block} sensorimotor based learning.
+}
+
 \end{columns} 
 %..............................................................................................................................................................................................
 %
