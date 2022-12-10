@@ -1,0 +1,279 @@
+%%
+%% This is file `./samples/longsample.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% apa7.dtx  (with options: `longsample')
+%% ----------------------------------------------------------------------
+%% 
+%% apa7 - A LaTeX class for formatting documents in compliance with the
+%% American Psychological Association's Publication Manual, 7th edition
+%% 
+%% Copyright (C) 2019 by Daniel A. Weiss <daniel.weiss.led at gmail.com>
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License (LPPL), either
+%% version 1.3c of this license or (at your option) any later
+%% version.  The latest version of this license is in the file:
+%% 
+%% http://www.latex-project.org/lppl.txt
+%% 
+%% Users may freely modify these files without permission, as long as the
+%% copyright line and this statement are maintained intact.
+%% 
+%% This work is not endorsed by, affiliated with, or probably even known
+%% by, the American Psychological Association.
+%% 
+%% ----------------------------------------------------------------------
+%% 
+\documentclass[man]{apa7}
+
+\usepackage{lipsum}
+
+\usepackage[american]{babel}
+
+\usepackage{csquotes}
+\usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{experiment-proposal.bib}
+
+% ellipses (three dots) in quatations definitions from: https://walden-family.com/public/texland/ellipses.pdf
+    %dots for main text
+    \def\bigdotsspace{3pt}
+    %three dots
+    \def\mydots{\hbox{\hspace{\bigdotsspace}.\hspace{\bigdotsspace}.\hspace{\bigdotsspace}.\hspace{\bigdotsspace}\hspace{\bigdotsspace}}}
+    %I like the same size space on each side of the ellipsis as
+    % is between the dots of the ellipsis
+    
+    \hypersetup{
+        nolinks=true,
+        colorlinks=false,
+        linkcolor=blue,
+        filecolor=magenta,      
+        urlcolor=cyan,
+        pdftitle={Effect of Personality Composition in Student Teams},
+        pdfpagemode=FullScreen,
+        % to turn off warning: "Package hyperref Warning: Draft mode on." add empty final attribute
+        % final
+    }
+
+\title{How does False Visual Input Affect Learning in Sensorimotor Adaption?}
+\shorttitle{False Feedback}
+
+\author{Antonio Amaddio}
+\affiliation{Freie Universität Berlin \\ Decision Neuroscience, Winter 2022/23, Supervisor: Dr. Rasmus Bruckner}
+
+\leftheader{Amaddio}
+
+\abstract{
+Sensorimotor adaption tries to explain how humans learn/update a movement to new rules of an environment. Detected errors from visual and proprioceptive input are integrated. In a natural environment, these two senses align with each other, in most cases. In this experiment proposal, the congruence of the two is manipulated in a laboratory fMRI environment. It purports to study how the human brain weighs the available information to learn a finger movement. It provides a method to confirm a potential learning model when the observed visual feedback is false. It is assumed that visual feedback moderates the learning rate as it diminishes the weight of one's proprioceptive feedback. The confirmed model, reproduces inequality in priority between the two senses and additionally shows the outweighing strength by vision. Activations in EBA, DLPFC and Cerebellum underpins the learning rates with current early/late learning research literature.
+}
+
+\keywords{Cognitive Neuroscience, model based fMRI analysis, EBA, DLPFC, Cerebellum}
+
+
+\authornote{
+   \addORCIDlink{Antonio Amaddio}{0000-0002-8855-4889}
+
+  Correspondence concerning this experiment proposal should be addressed to Antonio Amaddio, FU-Berlin. E-mail: antonio.amaddio@fu-berlin.de}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Research Question}
+
+Is learning of motor actions moderated by incongruency between vision and proprioception? If yes, can the visual suppress the proprioceptive sense.
+
+\section{Theoretical Background}
+
+For someone who's just started to type on a keyboard, finger movements can be slow and exhaustive. For someone who has learned to type on a keyboard long time ago, it is easy to fly over the keys without having to consciously think about every keystroke. This skill has been automated. A motorical action like this has been repeated so often that the mandatory neural activity has moved to a subcortical region (see \cite{seidler2013motor}). The other way round, a highly skilled movement can require conscious areas when ....
+
+revealed that matching visual and proprioceptive information about arm position engaged the PPC, PMv, and the body-selective extrastriate body area (EBA);
+
+Model of Motor Learning with False Feedback in a Limb Congruency Task
+
+Im Artikel untermauern, dass shift von DLPFC nach Cerebellum in between trials überhaupt sichtbar wird
+
+\subsection{Motivation}
+In particular: Motivate your research question \\
+Key background papers
+\cite{Limanowski2016}
+\cite{seidler2013motor}
+\subsection{Neurocognitive Relevance}
+Region of interests
+\subsection{Learning Model}
+
+Learning (i.e. adaption) is a process with the goal to minimize visual error (Antonio). In experimental terms, the error is bound to become smaller from trial to trial.
+
+learning rate: how much is learned from the visual error
+
+"Implicit adaptation in response to visuomotor perturbations has been framed as an iterative process, designed to minimize a visual error (Cheng and Sabes, 2006; Donchin et al., 2003; Herzfeld et al., 2014; Kim et al., 2018; Mazzoni and Krakauer, 2006; Morehead et al., 2017; Thoroughman and Shadmehr, 2000; Wolpert et al., 1998)." \parencite{Tsay2022}
+
+Model of learning to move correct contralateral finger when the visual feedback is false.
+\begin{itemize}
+    \item \textbf{Hinderance}: slower learning.
+    \item \textbf{Overwrite}: no learning.
+    \item \textbf{Confidence}: Active early learning, then no learning and relying on old learned model. Humans integrate external sensory information for as long as they trust it.
+    \item \textbf{Random}: Active early learning, then no learning and guessing. Humans move a random finger, when they can not trust either inner nor external sensory input.
+    \item \textbf{Resilient}: Humans learn irrelevant the correctness of the visual feedback.
+\end{itemize}
+
+Why it is expected that congruency affects learning negatively so that Hinderance or Overwrite learning behavior is expected.
+
+\begin{itemize}
+    \item vision outweighs proprioception due to its higher spatial accuracy.
+    \item constraint: integration of information when visuo-proprioceptive congruent (limb ownership)
+\end{itemize}
+
+\parencite{Limanowski2016}
+
+
+\section{Methods}
+\subsection{Participants}
+Todo Antonio: compute participant size: https://github.com/amaddio/decision-neuroscience-seminar-2022/issues/12
+
+Either only left handed or right handed particpants.
+exclusion criteria: Subjects, that can not move fingers entirely or twist wrists.
+
+sample size:
+
+- G*Power sample size estimation
+- repeated measures main effects (behavioral performance effect)
+- large effect of $\eta^2_p$ = .156
+- error probability of α = 0.05
+- number of measurements (40)
+- estimated correlation for repeated measures of 0.50
+- power 0.90 (1 − β)
+- N = 4
+
+> "and the main effect on visual disturbance was significant with $F$(8,108)=19.92 and P < .0001"
+aus \parencite{Wei2009}
+
+
+health: fingers movable in full range of motion and no cerebral pathological dysfunction in (EBA, DLPFC, Cerebellum).
+
+age = 18 - 99, health: fingers movable in full range of motion and no cerebral pathological dysfunction in (EBA, DLPFC, Cerebellum).
+
+
+
+\subsection{Experimental Set-Up}
+
+Participants will lay inside the fMRI scanner with their hands (a) crossed and wrists twisted.
+
+A 3D google has to be used to present the subject with a photorealistic virtual hand. The hands have to be in a sensible location to suggest limb ownership even when the hand is not actively moved.
+
+To (implicitly) locate the body-selective EBA a short task has to be run prior to the experiment. A simple task could be to either let subjects move their hands vs observe non limb objects (see example in \cite{Limanowski2016}).
+
+\subsection{Experimental Task}
+
+In an experimental (and control) trial, the subjects will (a) observe a 3D representation of their hand for 2 s, followed by (b) an arrow which points to the finger they will have to move for 2 to 4 s. The arrow will (c) disappear and the subject is allowed to move the respective finger in full range of motion, for 4 s, without correction. To reduce temporal conditioning of the subject in the event-related task as to when the finger is allowed to move, a random jitter is added to step b. To prevent the subject from thinking too long prior each movement and to even out the participants pre-movement thinking duration each step c will be limited to these 4 s. The trial is cancelled if the participant does not move withing 1 s after trial-step on-set. After the task, the participant is presented with (d) fixation stimuli for 10 s before the next trial starts (inter-trial interval). While waiting, the participant verbally answers if they think that they have moved the correct finger and if the 3D hand representation has adequately moved the corresponding finger. One trial will take 18 - 20 s.
+
+\subsection{Experimental Design}
+
+For each participant, 4 runs, 10 trials each, will be carried out. Experimental (i.e. false visual feedback) and control trials (i.e. correct visual feedback) will be randomized over all trials. Randomization allows multiple conditions to appear after each other. Counter-balancing over all runs makes sure that learning is manipulated in the same manner in between participants. A one-minute fixation break will be made in between each run. The duration of the entire experiment will be 15 - 16.3 min and hold 40 in-between subject measurements of correct/incorrect responses.
+
+Participants should complete a short training before data collection to get familiar to the task (e.g. two runs).
+
+After the experiment, the participant should answer a short survey (6-point forced choice scale ranging from - 3 do not agree at all to 3 fully agree):
+\begin{itemize}
+    \item limb ownership: Did you think the observed hand were your own?
+    \item vision/proprioception congruence: I knew when the felt finger position was off the observed 3D finger movement.
+    \item Personal vision vs proprioception preference:
+    \begin{itemize}
+        \item I could rely on my body sensation if I have moved the right finger.
+        \item I could rely on the visual feedback if I have moved the right finger.
+    \end{itemize}
+\end{itemize}
+
+
+Collected data:
+\begin{itemize}
+    \item Performance: Finger movement (true/false).
+    \item Verbal response:
+    \begin{itemize}
+        \item Did you think you have moved the right finger?
+        \item Did you think you have seen correct feedback?
+    \end{itemize}
+\end{itemize} 
+
+\subsection{Analysis}
+
+\"Within the PMv, which we a prioriexpected to be involved in visuo-proprioceptive processing based onprevious work (Graziano, 1999;Ehrsson et al., 2004;Gentile et al., 2013), we applied peak-level familywise error small volume correction within a10 mm radius spherical ROI centered on coordinates reported in a recent RHI fMRI study by Gentile et al. (2013). The resulting statistical parametric maps (SPMs) are projected onto the mean normalized structuralimage or rendered on SPM’s brain template atp 0.001, uncorrected, showing all activated voxels (cluster extent threshold). All reported coordinates are in MNI space; the SPM Anatomy toolbox (Eickhoff et al.,2005) was used for anatomical reference.\"
+
+\parencite{Limanowski2016}
+
+\section{Expected Results and Hypotheses}
+
+\subsection{Expected Results}
+
+\subsection{Hypotheses}
+
+    \begin{itemize}
+        \item \textbf{H1}: Congruency effects task performance (learning).
+        \begin{itemize}
+            \item Performance (negative error) significantly different for trials after correct vs incorrect feedback.
+            \item \textbf{Resilient} learning model can not explain subject's performance significantly.
+        \end{itemize}
+        \item \textbf{H2}: Visual input can outweigh proprioceptive information.
+        \begin{itemize}
+            \item \textbf{Overwrite} and/or \textbf{Hinderance} learning model can explain subject's performance best.
+        \end{itemize}
+    \end{itemize}
+
+\section{Discussion}
+
+\printbibliography
+\newpage
+\section{Appendix}
+
+\subsection{Declaration of independence}
+
+Herewith I certify that I have prepared and written my thesis independently and that I have not used any sources and aids other than those indicated by me.
+
+
+\end{document}
+
+%% 
+%% Copyright (C) 2019 by Daniel A. Weiss <daniel.weiss.led at gmail.com>
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License (LPPL), either
+%% version 1.3c of this license or (at your option) any later
+%% version.  The latest version of this license is in the file:
+%% 
+%% http://www.latex-project.org/lppl.txt
+%% 
+%% Users may freely modify these files without permission, as long as the
+%% copyright line and this statement are maintained intact.
+%% 
+%% This work is not endorsed by, affiliated with, or probably even known
+%% by, the American Psychological Association.
+%% 
+%% This work is "maintained" (as per LPPL maintenance status) by
+%% Daniel A. Weiss.
+%% 
+%% This work consists of the file  apa7.dtx
+%% and the derived files           apa7.ins,
+%%                                 apa7.cls,
+%%                                 apa7.pdf,
+%%                                 README,
+%%                                 APA7american.txt,
+%%                                 APA7british.txt,
+%%                                 APA7dutch.txt,
+%%                                 APA7english.txt,
+%%                                 APA7german.txt,
+%%                                 APA7ngerman.txt,
+%%                                 APA7greek.txt,
+%%                                 APA7czech.txt,
+%%                                 APA7turkish.txt,
+%%                                 APA7endfloat.cfg,
+%%                                 Figure1.pdf,
+%%                                 shortsample.tex,
+%%                                 longsample.tex, and
+%%                                 experiment-proposal.bib.
+%% 
+%%
+%% End of file `./samples/longsample.tex'.
