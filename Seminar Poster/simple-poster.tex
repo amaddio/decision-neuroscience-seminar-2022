@@ -146,9 +146,13 @@
  \includegraphics[width=.10\linewidth]{Seminar Poster/Figures/star.png}
  \textbf{manipulation step}: false finger moved (experimental trial) 
  vs correct finger moved (control trial) \\
+ \mbox{} \\
  \textbf{false}: participants movement \textbf{not equal} to observed movement (vision and proprioception incongruence) \\
-\textbf{true}:  participants movement \textbf{equal} to observed movement (vision and proprioception incongruence)
-\\ \mbox{}\\Sample: $n$ = min. 4 subjects (estimate on params: $.\eta^2_p$=.156, $\alpha$=.05, power = .9, age = 18 - 99, exclusion: finger and cerebral dysfunction.
+ \mbox{} \\
+ \textbf{true}:  participants movement \textbf{equal} to observed movement (vision and proprioception incongruence) \\
+\mbox{}\\
+\textbf{Sample}: $n$ = min. 4 subjects (estimate on params: $.\eta^2_p$=.156, $\alpha$=.05, power = .9), age = 18 - 99 \\
+\textbf{exclusion}: finger and cerebral dysfunction.
 
 
 }
@@ -157,19 +161,26 @@
 % 	Block
 %
 \block[titleleft,roundedcorners=16]{5. Region of Interests}{
-	\begin{minipage}{0.5\linewidth}
-            \raggedright
-	    \textbf{Extrastriate Body Area}: Congruent versus incongruent visual and proprioceptive information. High vs low \textbf{prediction error} \\
-            \mbox{} \\
-            \textbf{Dorsolateral Prefrontal Cortex}: Activated in early learning process. Shift from automatic to cognitive control. State: Consciously (implicitly) learning. High vs low \textbf{learning rate}\\
-            \mbox{} \\
-            \textbf{Cerebellum}: Activated in late learning process. Shift from cognitive controlled to automatically retrieved motor action. State: Motor action has been learned. High vs low \textbf{learning rate}\\
-	\end{minipage}
-	\begin{minipage}{0.5\linewidth}
-	    \includegraphics[width=\linewidth]{Seminar Poster/Figures/coronar-brain-slice.png}
-            \includegraphics[width=\linewidth]{Seminar Poster/Figures/lateral-brain.png}
-	\end{minipage}
 	
+    \raggedright
+    \textbf{Extrastriate Body Area}: Congruent versus incongruent visual and proprioceptive information. \\
+    \mbox{} \\
+    Neural activity correlates with \textbf{prediction error}. Difference in activity when the experienced
+    finger that has moved \textbf{is not equal} to the observed finger. \\
+    \mbox{} \\
+    Activity correlates with experimental manipulation (false visual feedback).
+    \mbox{} \\
+    \mbox{} \\
+            
+    \begin{minipage}{0.40\linewidth}
+        \includegraphics[height=\linewidth]{Seminar Poster/Figures/EBA-activation-horizontal.png}
+    \end{minipage}
+    \begin{minipage}{0.40\linewidth}
+        \includegraphics[height=\linewidth]{Seminar Poster/Figures/EBA-activation.png}            
+    \end{minipage}
+    \mbox{} \\
+    \mbox{} \\
+    Location: \textit{lateral occipitotemporal cortex}
 }
 %....................................................................................
 %
@@ -199,9 +210,9 @@
     Humans learn ... \\
     \mbox{}\\
     \begin{itemize}
-        \item slower (\textbf{Hinderance}),
-        \item not at all (\textbf{Overwrite}),
-        \item uninhibited (\textbf{Resilience}).
+        \item slower (\textcolor{MyBlueDark}{\textbf{Hinderance}}),
+        \item not at all (\textcolor{MyBlueLight}{\textbf{Overwrite}}),
+        \item uninhibited (\textcolor{MyGray}{\textbf{Resilient}}).
     \end{itemize}
 }
 %....................................................................................
@@ -217,14 +228,12 @@
     $\alpha: learning\:rate$ \\
     $r: reward$ \\
 
-    The model differs in its $learning\:rate$.
-    
-    \textcolor{MyBlueLight}{overwrite} : $\alpha = 0$ \\
-    \textcolor{MyBlueDark}{hinderance}: $\alpha = .5$ \\
-    \textcolor{MyGray}{resilient}: $\alpha = 1$ \\
-    
-    
-    
+    The models $learning\:rate$ differs for the three expected outcomes:
+    \begin{itemize}
+        \item \textcolor{MyBlueDark}{\textbf{Hinderance}}: $\alpha = .5$
+        \item \textcolor{MyBlueLight}{\textbf{Overwrite}} : $\alpha = 0$
+        \item \textcolor{MyGray}{\textbf{Resilient}}: $\alpha = 1$
+    \end{itemize}    
 }
 %....................................................................................
 %
@@ -235,11 +244,11 @@
             \item \textbf{H1}: Congruency effects task performance (learning).
             \begin{itemize}
                 \item Performance (negative error) significantly different for trials after correct vs incorrect feedback.
-                \item \textbf{Resilient} learning model can not explain subject's performance significantly.
+                \item \textcolor{MyGray}{\textbf{Resilient}} as parameter can \textbf{not} explain subject's performance best.
             \end{itemize}
             \item \textbf{H2}: Visual input can outweigh proprioceptive information.
             \begin{itemize}
-                \item \textbf{Overwrite} and/or \textbf{Hinderance} learning model can explain subject's performance best.
+                \item \textcolor{MyBlueLight}{\textbf{Overwrite}} and/or \textcolor{MyBlueDark}{\textbf{Hinderance}} as paramater can explain subject's performance best.
             \end{itemize}
         \end{itemize}
 }
