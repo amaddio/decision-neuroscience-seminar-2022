@@ -106,14 +106,20 @@ Results can provide a better understanding of a fundamental process relevant for
 
 \subsection{Learning Model}
 
-The used learning model in this experimental proposal is an adapted version of the Rescorla/Wagner model \parencite{Rescorla1972ATO}. Learning (i.e. adaption) is a process with the goal to minimize visual error \parencite{Tsay2022}. In experimental terms, the error is bound to become smaller from trial to trial. The error is operationalized in equation~\ref{equ:equation1} as prediction error. It is the delta between prediction and experience. In the finger paradigm, it is the expectancy to move the right finger minus the outcome if the right finger has been moved. The $t$ determines the trial index.
+The used learning model in this experimental proposal is an adapted version of the Rescorla/Wagner model \parencite{Rescorla1972ATO}. Learning (i.e. adaption) is a process with the goal to minimize visual error \parencite{Tsay2022}. In experimental terms, the error is bound to become smaller from trial to trial. To lay out the learning in the proposed paradigm, it is easiest to look at it without the experimental approach first.
+
+When a subject is tasked to move a finger A, he/she can either move finger A or any other finger. Chances are one to ten. If the subject chooses the right finger, nothing will be learned, as the prediction was correct. If the subject chooses other finger then A, then the learning rate is greater zero as the subject sees the (real) prediction error and integrate this valid piece of information to prevent the error in the next trial. Learning gets more complex as the, in reality observable, visual outcome is manipulated. The visual feedback could be either true (as in reality) or false. The latter is matter of interest as it is supposed to (a) invert the learning rate (\textit{overwrite}) or reduce the learning rate (\textit{hinderance}).
+
+If put into a contingency table of possible learning outcomes the sum of learning rates (see table \ref{tab:BasicTable}).
+
+The error is operationalized in equation~\ref{equ:equation1} as prediction error. It is the delta between prediction and experience. In the finger paradigm, it is the expectancy to move the right finger minus the outcome if the right finger has been moved. The $t$ determines the trial index.
 
 \begin{equation} \label{equation1}
 \delta_t = r_t - V_t(s_t)
 \label{equ:equation1}
 \end{equation}
 
-\begin{equation} \label{equation1}
+\begin{equation} \label{equation2}
 V_{t+1}(S_t)=(1-\alpha)V_t(S_t)+\alpha r_t    
 \label{equ:equation2}
 \end{equation}
@@ -138,9 +144,9 @@ $r: reward$ \\
 
 The models $learning\:rate$ differs for the three expected outcomes:
 \begin{itemize}
-    \item \textcolor{MyBlueDark}{\textbf{Hinderance}}: $\alpha = .5$
-    \item \textcolor{MyBlueLight}{\textbf{Overwrite}} : $\alpha = 0$
-    \item \textcolor{MyGray}{\textbf{Resilient}}: $\alpha = 1$
+    \item \textbf{Hinderance}: $\alpha = .5$
+    \item \textbf{Overwrite} : $\alpha = 0$
+    \item \textbf{Resilient}: $\alpha = 1$
 \end{itemize}   
 
 \begin{itemize}
@@ -166,9 +172,9 @@ Why it is expected that congruency affects learning negatively so that Hinderanc
 
 Participants should be either only left-handed or right-handed. Gender should be balanced. If recruitment turns out to be difficult, the dominant side as well as gender should be collected as a control measure. Furthermore, as exclusion criteria data should not be collected from subjects, that can not move fingers in full range of motion, twist their wrists, have cerebral lesions which affect motor learning and are younger than 18 and older than 80 years old.
 
-A small sample size of at least 4 subjects is required to find a sufficient statistical effect. The estimate has been computed with G*Power \parencite{erdfelder1996gpower}. The used parameters are, repeated measures main effects, an error probability of α = 0.05, 40 measurements, an estimated correlation for repeated measures of 0.50 and a desired power of 1 - $\beta$ = .9. The large effect of $\eta^2_p$ = .156 has been deduced from \citeauthor{Wei2009}'s finding in visual disturbance (\citeyear{Wei2009}).
+A small sample size of at least 4 subjects is required to find a sufficient statistical effect. The estimate has been computed with G*Power \parencite{erdfelder1996gpower}. The used parameters are, repeated measures main effects, an error probability of $\alpha$ = 0.05, 40 measurements, an estimated correlation for repeated measures of 0.50 and a desired power of 1 - $\beta$ = .9. The large effect of $\eta^2_p$ = .156 has been deduced from \citeauthor{Wei2009}'s finding in visual disturbance (\citeyear{Wei2009}).
 
-Remuneration should be given adequately to the rules of the state (e.g. 12.96, Berlin TV Stud III). For fund acquisition, a duration of 30 minutes per participant is recommended.
+Remuneration should be given adequately to the rules of the state (e.g. €12.96, Berlin TV Stud III). For fund acquisition, a duration of 30 minutes per participant is recommended.
 
 \subsection{Experimental Set-Up}
 
@@ -220,6 +226,38 @@ The experiment proposal falls in line with current literature of visuo-centric v
 \printbibliography
 \newpage
 \section{Appendix}
+
+\begin{table}
+  \caption{Contingency Table Learning Outcomes}
+  \label{tab:BasicTable}
+  \begin{tabular}{@{}llllllllr@{}}         \toprule
+              &           &                 &                &                &     & \multicolumn{3}{c}{Lerning rate param}        \\ \cmidrule(r){7-9}
+  Instr.\tabfnm{a}      &   Moved\tabfnm{b}   & Feedb.\tabfnm{c}          & Motor E.\tabfnm{d}       & Feedb. E.\tabfnm{e}      & EBA \tabfnm{f}& Res.\tabfnm{g}& Hind.\tabfnm{h}& Overw.\tabfnm{i}\\ \midrule
+  A           &   A       & A               & 0              & 0              & 0   & 0         & ?           & 0 \\
+  A           &   A       & O               & 0              & 1              & 1   & 0         & ?           & 1 \\
+  A           &   O       & A               & 0              & 0              & 1   & 1         & ?           & 0 \\
+  A           &   O       & O               & 1              & 1              & 0   & 1         & ?           & 1 \\
+  O           &   A       & A               & 1              & 1              & 0   & 1         & ?           & 1 \\
+  O           &   A       & O               & 1              & 0              & 1   & 1         & ?           & 0 \\
+  O           &   O       & A               & 0              & 1              & 1   & 0         & ?           & 1 \\
+  O           &   O       & O               & 0              & 0              & 0   & 0         & ?           & 0 \\ \bottomrule
+  \end{tabular}
+  \begin{tablenotes}[para,flushleft]
+        {\small
+            \textit{Note.} Some combinations are duplicate but listed for full comprehension.
+
+            \tabfnt{a}Instructed finger to move.
+            \tabfnt{b}The finger that has actually been moved.
+            \tabfnt{c}The finger the subject observes in 3D googles which moves.
+            \tabfnt{d}Motor error.
+            \tabfnt{e}Feedback error.
+            \tabfnt{f}Activation in extrastriate body area
+            \tabfnt{g}Learning rate parameter according to \textit{resilient} rule
+            \tabfnt{h}Learning rate parameter according to \textit{hinderance} rule
+            \tabfnt{i}Learning rate parameter according to \textit{overwrite} rule
+         }
+    \end{tablenotes}
+\end{table}
 
 \subsection{Declaration of Independence}
 
