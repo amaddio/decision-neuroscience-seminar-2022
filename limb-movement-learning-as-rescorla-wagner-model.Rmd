@@ -1,0 +1,258 @@
+---
+title: "Rescorla Wagner Model and Congruent Limb Movements"
+author: "Antonio Amaddio"
+date: "2022-11-12"
+output:
+  html_document:
+    toc: true
+    number_sections: true
+    theme: united
+    highlight: tango
+    code_folding: hide
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Rescorla Wagner Model 1972
+
+The [Rescorla Wagner model](https://www.semanticscholar.org/paper/A-theory-of-Pavlovian-conditioning-%3A-Variations-in-Rescorla/afaf65883ff75cc19926f61f181a687927789ad1)...
+
+Update rule:
+
+$\Large V_{t+1}(S_t)=(1-\alpha)V_t(S_t)+\alpha r_t$
+
+ - stimulus: $s$ - instructed finger that shall be moved
+ - prediction of reward (value) associated with stimulus: $V(s)$ - likelihood to move finger $i$
+ - observing stimulus $s_t$ - instructed finger that shall be moved in trial $t$
+ - reward on trial $r_{t_\prime}$ - congruent visual feedback
+ - prediction error: $\delta_t=r_t-V_t(S_t)$ - congruent visual feedback - likelihood to move finger i *(instructed finger that shall be moved in trial t)
+  - pe = 0: "I had to move left pointing finger; I moved my left pointing finger (TRUE); I observed to have moved left pointing finger"
+  - pe = 1: "I had to move left pointing finger; I moved my left pointing finger (TRUE); I observed to have moved RIGHT pointing finger"
+
+# Learning in Sensorimotor Adaption under False Feedback
+
+Learning of motor actions is driven by error processing. Feedback of information from proprioception and vision is integrated when the two are congruent.
+
+# Simple Model - One finger fits all
+
+All finger on both hands are treated equally. The only parameter is congruent/incongruent feedback. It effects the learning rate equally.
+
+# Extended Model - Each finger learns individually
+
+Same as the [simple model](#simple-model---one-finger-fits-all). Difference is that learning rates are divided by 10 fingers.
+
+```{r}
+
+# Startwahrscheinlichkeit .1 (10 Finger; 10 RW Modelle)
+
+#load library
+library(gtools)
+# possbilities to move a finger
+# A: correct finger, O: other finger
+x <- c("A","O")
+# get all permutations of 
+# motor prediction error: movement correct/false (performance)
+# visual prediction error: correct/false feedback
+options <- c("instruction", "moved", "feedback")
+permutations(n=length(x),r=length(options),v=x,repeats.allowed=T)
+
+### The Rescorla-Wagner learning rule implemented as an R function
+
+# alpha: learning rate
+# lambda: outcome; actual finger moved
+
+# lambda 1: richtig
+# lambda 0: falsch
+
+
+# updated function with Rasmus
+update_RW <- function(value, alpha=.5, lambda=1) {
+  value_compound <- sum(value)                    # value of the compound; Erwartungswert
+  prediction_error <- lambda - value_compound     # prediction error
+  value_change <- alpha * prediction_error # change in strength
+  value <- value + value_change                   # update value
+  # similar as
+  #value <- value + alpha * (lambda - value_compound) # formula of daw: - prediction_error
+  return(value)
+}
+
+# create random (shuffled) vector of experimental/control trials
+# feedback is either correct/false
+feedback<-rep(0:1, each=20)
+feedback<-sample(feedback)
+n_trials<-40 # 40 trials
+```
+
+## Resilient
+
+```{r}
+strength_resilient <- numeric(n_trials) # vector off zeros
+
+# present CS-US pairings and update
+for(trial in 2:n_trials) {
+  # lambda 1: richtig
+  # lambda 0: falsch
+  strength_resilient[trial] <- update_RW( strength_resilient[trial-1], alpha=.1, lambda=feedback[trial])
+}
+
+print(strength_resilient)
+##  [1] 0.0000000 0.1000000 0.0900000 0.1810000 0.1629000 0.1466100 0.1319490
+##  [8] 0.1187541 0.2068787 0.2861908 0.2575717 0.3318146 0.3986331 0.3587698
+## [15] 0.4228928 0.4806035 0.4325432 0.3892889 0.3503600 0.3153240 0.3837916
+## [22] 0.4454124 0.4008712 0.4607841 0.5147057 0.5632351 0.5069116 0.5562204
+## [29] 0.5005984 0.4505385 0.5054847 0.4549362 0.5094426 0.5584983 0.5026485
+## [36] 0.5523837 0.5971453 0.5374308 0.4836877 0.5353189
+
+# plot command
+plot(
+  strength_resilient, 
+  xlab = "Trial Number",
+  ylab = "Performance",
+  pch = 1
+)
+
+strength_data_and_trial <- data.frame(strength=strength_resilient, trial=1:40)
+model <- lm(strength  ~ trial, strength_data_and_trial)
+abline(model, lwd = 2)
+
+title(main = "Resilient")
+```
+
+## Hinderance
+
+```{r}
+
+strength_hinderance <- numeric(n_trials) # vector off zeros
+
+# present CS-US pairings and update
+for(trial in 2:n_trials) {
+  # lambda 1: richtig
+  # lambda 0: falsch
+  strength_hinderance[trial] <- update_RW( strength_hinderance[trial-1], alpha=.05, lambda=feedback[trial])
+}
+
+print(strength_hinderance)
+##  [1] 0.00000000 0.00000000 0.05000000 0.04750000 0.04512500 0.09286875
+##  [7] 0.08822531 0.13381405 0.12712334 0.17076718 0.21222882 0.20161738
+## [13] 0.24153651 0.22945968 0.26798670 0.30458736 0.33935800 0.32239010
+## [19] 0.30627059 0.34095706 0.37390921 0.35521375 0.38745306 0.41808041
+## [25] 0.39717639 0.37731757 0.35845169 0.34052911 0.32350265 0.35732752
+## [31] 0.38946114 0.41998808 0.44898868 0.42653925 0.40521228 0.43495167
+## [37] 0.41320409 0.44254388 0.42041669 0.39939585
+
+# plot command
+plot(
+  strength_hinderance, 
+  xlab = "Trial Number",
+  ylab = "Performance",
+  pch = 1
+)
+strength_data_and_trial <- data.frame(strength=strength_hinderance, trial=1:40)
+model <- lm(strength  ~ trial, strength_data_and_trial)
+abline(model, lwd = 2)
+title(main = "Hinderance")
+```
+
+## Overwrite
+
+```{r}
+
+strength_overwrite <- numeric(n_trials) # vector off zeros
+
+# present CS-US pairings and update
+for(trial in 2:n_trials) {
+  # lambda 1: richtig
+  # lambda 0: falsch
+  strength_overwrite[trial] <- update_RW( strength_overwrite[trial-1], alpha=0, lambda=feedback[trial])
+}
+
+print(strength_overwrite)
+
+# plot command
+plot(
+  strength_overwrite, 
+  xlab = "Trial Number",
+  ylab = "Performance",
+  pch = 1
+)
+strength_data_and_trial <- data.frame(strength=strength_overwrite, trial=1:40)
+model <- lm(strength  ~ trial, strength_data_and_trial)
+abline(model, lwd = 2)
+title(main = "Overwrite")  
+
+```
+
+## Integrated Graph
+
+```{r}
+# plot characters: http://www.sthda.com/english/wiki/r-plot-pch-symbols-the-different-point-shapes-available-in-r
+dark_blue = "#161F81FF" # rgb(22, 31, 129, 0.5, maxColorValue = 255)
+light_blue = "#A7C5E8FF"  # rgb(167, 197, 232, 0.95, maxColorValue = 255)
+my_grey = "#707071FF" # rgb(112, 112, 113, 0.95, maxColorValue = 255)
+
+#par(oma = c(2, 2, 2, 2)) # Set the margin on all sides to 2
+
+plot(
+  strength_overwrite, 
+  main = "Learning under False Feedback",
+  xlab = "Trial Number",
+  ylab = "Mean Performance",
+  #pch = 1,
+  pch = 0,
+  type="b",
+  col=dark_blue,
+  ylim=c(0,1.0),
+  cex.main = 3.0,
+  cex.lab = 1.5
+)
+
+#strength_data_and_trial <- data.frame(strength=strength_overwrite, trial=1:40)
+#model <- lm(strength  ~ trial, strength_data_and_trial)
+#abline(model, lwd = 2, col=dark_blue, type="solid")
+
+#title(main = "Learning under False Feedback")  
+
+lines(
+  x = 1:40,
+  y = strength_hinderance[1:40],
+  col=light_blue,
+  #lty="dotted",
+  #lwd="2",
+  type="b",
+  pch=1
+)
+
+strength_data_and_trial <- data.frame(strength=strength_hinderance, trial=1:40)
+model <- lm(strength  ~ trial, strength_data_and_trial)
+abline(model, lwd = 2, col=light_blue, lty="dotted")
+
+lines(
+  x = 1:40,
+  y = strength_resilient[1:40],
+  #pch=0,
+  type="b",
+  pch = 2,
+  col=my_grey
+)
+
+strength_data_and_trial <- data.frame(strength=strength_resilient, trial=1:40)
+model <- lm(strength  ~ trial, strength_data_and_trial)
+abline(model, lwd = 2, col=my_grey, lty="dashed")
+
+legend("topright", text.col=c(dark_blue, light_blue, my_grey), col = c(dark_blue, light_blue, my_grey), legend = c("overwrite", "hinderance", "resilient"), pch = c(0, 1, 2), bty = "n", cex=2.0)
+```
+
+
+
+_Performance: Likelihood to move correct finger_
+
+# Extended Model II - All fingers learn dependent from each other
+
+A future experiment design should formulate a model that is closer to reality when concerning learning rates for finger movements. Considering all fingers of two hands as one motor primitive is too simple. In reality, the likelihood to move the correct finger in the paradigm is dependent on the side of the hand. In other words it is more likely to confuse the contra- vs ipsilateral finger.
+
+## Extended (hierarchical) Model III - Left vs right hand as additional parameter
+
+Same as the [extended model](#extended-model---each-finger-learns-individually). Additionally the distance between each finger is considered. In other words it is more likely to confuse the neighboring finger–i.e. index and middle vs index and pinky finger.
