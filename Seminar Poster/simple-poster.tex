@@ -141,7 +141,7 @@
 %
 \block[titleleft,roundedcorners=16]{4. Experimental Design}{
  \raggedright
- \textbf{Learning} will be \textbf{manipulated} experimentally by visual correct/incorrect feedback. \\ \mbox{}
+ \textbf{Learning} will be \textbf{manipulated} experimentally by visual correct/incorrect feedback. \\ \mbox{} \\
  \includegraphics[width=\linewidth]{Seminar Poster/Figures/experiment-runs-compact.png}
  \includegraphics[width=.10\linewidth]{Seminar Poster/Figures/star.png}
  \textbf{manipulation step}: false finger moved (experimental trial) 
@@ -151,7 +151,8 @@
  \mbox{} \\
  \textbf{true}:  participants movement \textbf{equal} to observed movement (vision and proprioception incongruence) \\
 \mbox{}\\
-\textbf{Sample}: $n$ = min. 4 subjects (estimate on params: $.\eta^2_p$=.156, $\alpha$=.05, power = .9), age = 18 - 80 \\
+\textbf{sample}: $n$ = min. 4 subjects (estimate on params: $.\eta^2_p$=.156, $\alpha$=.05, power = .9), age = 18 - 80 \\
+\mbox{}\\
 \textbf{exclusion}: finger and cerebral dysfunction.
 
 
@@ -210,9 +211,9 @@
     Humans learn ... \\
     \mbox{}\\
     \begin{itemize}
-        \item uninhibitedly (\textcolor{MyGray}{\textbf{Resilient}}),
-        \item slower (\textcolor{MyBlueLight}{\textbf{Hinderance}}),
-        \item not at all (\textcolor{MyBlueDark}{\textbf{Overwrite}}).
+        \item uninhibitedly (\textcolor{MyGray}{\textbf{resilient}}),
+        \item slower (\textcolor{MyBlueLight}{\textbf{hinderance}}),
+        \item not at all (\textcolor{MyBlueDark}{\textbf{overwrite}}).
         
     \end{itemize}
 }
@@ -220,22 +221,22 @@
 %
 %	Block
 %
-\block[titleleft,roundedcorners=16]{7. Neural Correlates and Learning}{
-    \includegraphics[width=\linewidth]{Seminar Poster/Figures/integrated_learning_models_four_by_four.png}
-    \textbf{Learning} is shown as mean performance over all ten fingers. \textbf{EBA} activation refers to sense congruence and does \textbf{not} differ between learning rules.
+\block[titleleft,roundedcorners=16]{7. Neural Correlate and Learning}{
+\raggedright
+    \includegraphics[width=\linewidth]{Figures/learning-curve.pdf}
+    \textbf{Learning} is shown as mean performance over all ten fingers.    
+    \includegraphics[width=\linewidth]{Seminar Poster/Figures/eba-activation.pdf}
+    \textbf{EBA} activation refers to sense congruence and does \textbf{not} differ between learning rules. \\
+    \mbox{} \\
     Update rule adapted from \textit{Rescorla/Wagner model}\\
-    $V_{t+1}(S_t)=(1-\alpha)V_t(S_t)+\alpha r_t$ \\
-    $V: value$ \\
-    $t: trial$ \\
-    $S: stimulus$ \\
-    $\alpha: learning\:rate$ \\
-    $r: reward$ \\
+    $V_{t+1}(s_t)=V_{t}(s_t) + \alpha * \delta_t.$ \\
+    \mbox{} \\
 
-    The models $learning\:rate$ differs for the three expected outcomes per finger:
+    The models $\alpha$ \textbf{learning rate} differs for the three expected rules per finger:
     \begin{itemize}
-        \item \textcolor{MyGray}{\textbf{Resilient}}: $\alpha = 1 / 10 = .1$
-        \item \textcolor{MyBlueLight}{\textbf{Hinderance}}: $\alpha = .5 / 10 = .05$
-        \item \textcolor{MyBlueDark}{\textbf{Overwrite}} : $\alpha = 0$
+        \item \textcolor{MyGray}{\textbf{resilient}}: $\alpha = 1 / 10 = .1$
+        \item \textcolor{MyBlueLight}{\textbf{hinderance}}: $\alpha = .5 / 10 = .05$
+        \item \textcolor{MyBlueDark}{\textbf{overwrite}} : $\alpha = 0$
     \end{itemize}    
 }
 %....................................................................................
@@ -254,7 +255,7 @@
 %
 \block[titleleft,roundedcorners=16]{9. Implication}{
 \raggedright
-Results show how \textbf{strong} false feedback from vision can \textbf{impede} or even \textbf{block} sensorimotor based learningCongruenc
+Results show how \textbf{strong} false feedback from vision can \textbf{impede} or even \textbf{block} sensorimotor based learning.
 }
 
 \end{columns} 

@@ -29,12 +29,11 @@
 %% 
 \documentclass[man]{apa7}
 
-\usepackage{lipsum}
-
 \usepackage[american]{babel}
 
 \usepackage{csquotes}
 \usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
+\usepackage{minted}
 \DeclareLanguageMapping{american}{american-apa}
 \addbibresource{experiment-proposal.bib}
 
@@ -106,68 +105,35 @@ Results can provide a better understanding of a fundamental process relevant for
 
 \subsection{Learning Model}
 
-The used learning model in this experimental proposal is an adapted version of the Rescorla/Wagner model \parencite{Rescorla1972ATO}. Learning (i.e. adaption) is a process with the goal to minimize visual error \parencite{Tsay2022}. In experimental terms, the error is bound to become smaller from trial to trial. To lay out the learning in the proposed paradigm, it is easiest to look at it without the experimental approach first.
+The used learning model in this experimental proposal is an adapted version of the Rescorla/Wagner model \parencite{Rescorla1972ATO}. Learning (i.e. adaption) is a process with the goal to minimize visual error \parencite{Tsay2022}. In experimental terms, the error is bound to become smaller from trial to trial. To lay out the learning in the proposed paradigm, it is easiest to look at it without the experimental manipulation at first.
 
-When a subject is tasked to move a finger A, he/she can either move finger A or any other finger. Chances are one to ten. If the subject chooses the right finger, nothing will be learned, as the prediction was correct. If the subject chooses other finger then A, then the learning rate is greater zero as the subject sees the (real) prediction error and integrate this valid piece of information to prevent the error in the next trial. Learning gets more complex as the, in reality observable, visual outcome is manipulated. The visual feedback could be either true (as in reality) or false. The latter is matter of interest as it is supposed to (a) invert the learning rate (\textit{overwrite}) or reduce the learning rate (\textit{hinderance}).
+When a subject is tasked to move a finger A, he/she can either move finger A or any other finger. Chances are one to ten. If the subject chooses the right finger, nothing will be learned, as the prediction was correct. If the subject chooses other finger than A, then the learning rate is greater zero as the subject sees the (real) prediction error and integrate this valid piece of information to prevent prediction error at the next trial. Learning gets more complex as the–in reality observable–visual outcome is manipulated. The visual feedback can be either true (as in reality) or false. The latter is matter of interest, as it is proposed that false feedback (a) inverts the learning rate (\textit{overwrite} rule) or reduces the learning rate (\textit{hinderance} rule). The unlikely null influence on the learning rate is determined as \textit{resilient} rule. Table \ref{tab:BasicTable} shows that the rules apply only for incongruent situations (rows 2, 3, 6, 7).
 
-If put into a contingency table of possible learning outcomes the sum of learning rates (see table \ref{tab:BasicTable}).
-
-When letters do not match in column \textit{moved} and \textit{seen}: no congruency.
-
-The error is operationalized in equation~\ref{equ:equation1} as prediction error. It is the delta between prediction and experience. In the finger paradigm, it is the expectancy to move the right finger minus the outcome if the right finger has been moved. The $t$ determines the trial index.
+Algebraically, the error is operationalized in equation~\ref{equ:equation1} as prediction error. It is the delta between value prediction and experienced outcome. In the finger paradigm, it is the difference between expectancy to move finger A ($V_t(s_t)$) in trial $t$ and the outcome ($r_t$) in trial $t$ if the right finger has been moved.
 
 \begin{equation} \label{equation1}
 \delta_t = r_t - V_t(s_t)
 \label{equ:equation1}
 \end{equation}
 
+As mentioned in the first paragraph, this prediction error is used to minimize error so that the update rule for the next trial can be formalized as equation~\ref{equ:equation2}
+
 \begin{equation} \label{equation2}
-V_{t+1}(S_t)=(1-\alpha)V_t(S_t)+\alpha r_t    
+V_{t+1}(s_t)=V_{t}(s_t) + \alpha * \delta_t.
 \label{equ:equation2}
 \end{equation}
 
+The expected outcome ($V_{t}(s_t)$) is updated with the prediction error in this trial ($\delta_t$) where a learning rate parameter ($\alpha$) determines the association strength. The three discussed rules vary the learning rate in that way that task performance (a) remains unaffected (\textit{overwrite}; $\alpha$ = 0), (b) increases slowly (\textit{hinderance}; $\alpha$ = .05) or (c) increases regardless of the experimental manipulation (\textit{resilient}; $\alpha$ = .1). In other words, the rule determines how much is learned from the visual error.
 
+The expected learning curve varies depending on the learning rate ($\alpha$) where (a) \textit{overwrite} remains at the point of baseline, (b) \textit{hinderance} increases with lower slope as (c) \textit{resilient} rule (see figure~\ref{fig:Figure1}).
 
-
-
-
-
-
-learning rate: how much is learned from the visual error
-
-Model of learning to move correct contralateral finger when the visual feedback is false.
-
-$V_{t+1}(S_t)=(1-\alpha)V_t(S_t)+\alpha r_t$ \\
-$V: value$ \\
-$t: trial$ \\
-$S: stimulus$ \\
-$\alpha: learning\:rate$ \\
-$r: reward$ \\
-
-The models $learning\:rate$ differs for the three expected outcomes:
-\begin{itemize}
-    \item \textbf{Hinderance}: $\alpha = .5$
-    \item \textbf{Overwrite} : $\alpha = 0$
-    \item \textbf{Resilient}: $\alpha = 1$
-\end{itemize}   
-
-\begin{itemize}
-    \item \textbf{Hinderance}: slower learning.
-    \item \textbf{Overwrite}: no learning.
-    \item \textbf{Confidence}: Active early learning, then no learning and relying on old learned model. Humans integrate external sensory information for as long as they trust it.
-    \item \textbf{Random}: Active early learning, then no learning and guessing. Humans move a random finger, when they can not trust either inner nor external sensory input.
-    \item \textbf{Resilient}: Humans learn irrelevant the correctness of the visual feedback.
-\end{itemize}
-
-Why it is expected that congruency affects learning negatively so that Hinderance or Overwrite learning behavior is expected.
-
-\begin{itemize}
-    \item vision outweighs proprioception due to its higher spatial accuracy.
-    \item constraint: integration of information when visuo-proprioceptive congruent (limb ownership)
-\end{itemize}
-
-\parencite{Limanowski2016}
-
+\begin{figure}
+    \caption{Learning under False Feedback }
+    %\includegraphics[bb=0in 0in 2.5in 2.5in, height=2.5in, width=2.5in]{Article/Figures/learning-curves-r.png}
+    \includegraphics[scale=.6]{Figures/learning-curve.pdf}
+    
+    \label{fig:Figure1}
+\end{figure}
 
 \section{Methods}
 \subsection{Participants}
@@ -227,22 +193,24 @@ The experiment proposal falls in line with current literature of visuo-centric v
 
 \printbibliography
 \newpage
+
 \section{Appendix}
 
 \begin{table}
   \caption{Contingency Table Learning Outcomes}
   \label{tab:BasicTable}
-  \begin{tabular}{@{}rrrrrrrrr@{}}         \toprule
-              &           &                 &                &                &     & \multicolumn{3}{c}{Lerning rate param}        \\ \cmidrule(r){7-9}
-  Instr.\tabfnm{a}      &   Moved\tabfnm{b}   & Seen\tabfnm{c}          & Motor E.\tabfnm{d}       & Feedb. E.\tabfnm{e}      & EBA \tabfnm{f}& Res.\tabfnm{g}& Hind.\tabfnm{h}& Overw.\tabfnm{i}\\ \midrule
-  A           &   A       & A               & 0              & 0              & 0   & 0         & ?           & 0 \\
-  A           &   A       & O               & 0              & 1              & 1   & 0         & ?           & 1 \\
-  A           &   O       & A               & 0              & 0              & 1   & 1         & ?           & 0 \\
-  A           &   O       & O               & 1              & 1              & 0   & 1         & ?           & 1 \\
-  O           &   A       & A               & 1              & 1              & 0   & 1         & ?           & 1 \\
-  O           &   A       & O               & 1              & 0              & 1   & 1         & ?           & 0 \\
-  O           &   O       & A               & 0              & 1              & 1   & 0         & ?           & 1 \\
-  O           &   O       & O               & 0              & 0              & 0   & 0         & ?           & 0 \\ \bottomrule
+  \begin{tabular}{@{}lrrrrrrrrr@{}}         \toprule
+    &                      &                   &                 &                     &                     &                 & \multicolumn{3}{c}{Lerning rate param}        \\ \cmidrule(r){8-10}
+  \# &  Instr.\tabfnm{a}      &   Moved\tabfnm{b} & Seen\tabfnm{c}  & Motor E.\tabfnm{d}  & Feedb. E.\tabfnm{e} & EBA \tabfnm{f}  & Res.\tabfnm{g}  & Hind.\tabfnm{h} & Overw.\tabfnm{i}\\ \midrule
+  1 &  A                     &   A               & A               & 0                   & 0                   & 0               & 0               & 0                & 0 \\
+  2 &  A                     &   A               & O               & 0                   & 1                   & 1               & 0               & 0                & 0 \\
+  3 &  A                     &   O               & A               & 0                   & 0                   & 1               & .1              & -.05             & -.1 \\
+  4 &  A                     &   O               & O               & 1                   & 1                   & 0               & .1              & .1               & .1 \\
+  5 &  O                     &   A               & A               & 1                   & 1                   & 0               & .1              & .1               & .1 \\
+  6 &  O                     &   A               & O               & 1                   & 0                   & 1               & .1              & 0                & 0 \\
+  7 &  O                     &   O               & A               & 0                   & 1                   & 1               & 0               & -.05             & -.1 \\
+  8 &  O                     &   O               & O               & 0                   & 0                   & 0               & 0               & 0                & 0 \\ \bottomrule
+$\sum$ &                       &                  &                &                     &                     &                 & .4              & .1               & 0 \\ \bottomrule
   \end{tabular}
   \begin{tablenotes}[para,flushleft]
         {\small
@@ -253,13 +221,15 @@ The experiment proposal falls in line with current literature of visuo-centric v
             \tabfnt{c}The finger the subject observes in 3D goggles which moves.
             \tabfnt{d}Motor error.
             \tabfnt{e}Feedback error.
-            \tabfnt{f}Activation in extrastriate body area
-            \tabfnt{g}Learning rate parameter according to \textit{resilient} rule
-            \tabfnt{h}Learning rate parameter according to \textit{hinderance} rule
-            \tabfnt{i}Learning rate parameter according to \textit{overwrite} rule. Learning rates divided by 10 fingers, to simulate individual learning each finger. A higher value means more learning, zero means no learning.
+            \tabfnt{f}Activation in extrastriate body area.
+            \tabfnt{g}Learning rate parameter according to \textit{resilient} rule.
+            \tabfnt{h}Learning rate parameter according to \textit{hinderance} rule.
+            \tabfnt{i}Learning rate parameter according to \textit{overwrite} rule. Learning rates divided by 10 fingers, to simulate individual learning each finger. A positive/negative value means beneficial/detrimental directed learning, zero means no learning.
+            The letter \textit{A} represents any possible finger, \textit{B} represents any possible finger other than \textit{A}.
          }
     \end{tablenotes}
 \end{table}
+
 
 \subsection{Declaration of Independence}
 
@@ -272,6 +242,7 @@ Antonio Amaddio, 12/12/2022
 
 
 \end{document}
+
 
 %% 
 %% Copyright (C) 2019 by Daniel A. Weiss <daniel.weiss.led at gmail.com>
