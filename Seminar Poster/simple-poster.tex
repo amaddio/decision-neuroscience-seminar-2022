@@ -210,9 +210,10 @@
     Humans learn ... \\
     \mbox{}\\
     \begin{itemize}
-        \item slower (\textcolor{MyBlueDark}{\textbf{Hinderance}}),
-        \item not at all (\textcolor{MyBlueLight}{\textbf{Overwrite}}),
-        \item uninhibited (\textcolor{MyGray}{\textbf{Resilient}}).
+        \item uninhibitedly (\textcolor{MyGray}{\textbf{Resilient}}),
+        \item slower (\textcolor{MyBlueLight}{\textbf{Hinderance}}),
+        \item not at all (\textcolor{MyBlueDark}{\textbf{Overwrite}}).
+        
     \end{itemize}
 }
 %....................................................................................
@@ -221,6 +222,7 @@
 %
 \block[titleleft,roundedcorners=16]{7. Neural Correlates and Learning}{
     \includegraphics[width=\linewidth]{Seminar Poster/Figures/integrated_learning_models_four_by_four.png}
+    \textbf{Learning} is shown as mean performance over all ten fingers. \textbf{EBA} activation refers to sense congruence and does \textbf{not} differ between learning rules.
     Update rule adapted from \textit{Rescorla/Wagner model}\\
     $V_{t+1}(S_t)=(1-\alpha)V_t(S_t)+\alpha r_t$ \\
     $V: value$ \\
@@ -229,12 +231,12 @@
     $\alpha: learning\:rate$ \\
     $r: reward$ \\
 
-    The models $learning\:rate$ differs for the three expected outcomes:
+    The models $learning\:rate$ differs for the three expected outcomes per finger:
     \begin{itemize}
-        \item \textcolor{MyBlueDark}{\textbf{Hinderance}}: $\alpha = .5$
-        \item \textcolor{MyBlueLight}{\textbf{Overwrite}} : $\alpha = 0$
-        \item \textcolor{MyGray}{\textbf{Resilient}}: $\alpha = 1$
-    \end{itemize}
+        \item \textcolor{MyGray}{\textbf{Resilient}}: $\alpha = 1 / 10 = .1$
+        \item \textcolor{MyBlueLight}{\textbf{Hinderance}}: $\alpha = .5 / 10 = .05$
+        \item \textcolor{MyBlueDark}{\textbf{Overwrite}} : $\alpha = 0$
+    \end{itemize}    
 }
 %....................................................................................
 %
@@ -242,16 +244,9 @@
 %
 \block[titleleft,roundedcorners=16]{8. Hypotheses}{
 \begin{itemize}
-            \item \textbf{H1}: Congruenc effects task performance (learning).
-            \begin{itemize}
-                \item Performance (negative error) significantly different for trials after correct vs incorrect feedback.
-                \item \textcolor{MyGray}{\textbf{Resilient}} as parameter can \textbf{not} explain subject's performance best.
-            \end{itemize}
-            \item \textbf{H2}: Visual input can outweigh proprioceptive information.
-            \begin{itemize}
-                \item \textcolor{MyBlueLight}{\textbf{Overwrite}} and/or \textcolor{MyBlueDark}{\textbf{Hinderance}} as paramater can explain subject's performance best.
-            \end{itemize}
-        \end{itemize}
+    \item \textbf{H1}: Congruence effects task performance (learning).            
+    \item \textbf{H2}: Visual input can outweigh proprioceptive information.            
+\end{itemize}
 }
 %....................................................................................
 %
@@ -259,11 +254,11 @@
 %
 \block[titleleft,roundedcorners=16]{9. Implication}{
 \raggedright
-Results show how \textbf{strong} false feedback from vision can \textbf{impede} or even \textbf{block} sensorimotor based learning.
+Results show how \textbf{strong} false feedback from vision can \textbf{impede} or even \textbf{block} sensorimotor based learningCongruenc
 }
 
 \end{columns} 
-%..............................................................................................................................................................................................
+%..................................................................................................................%...............................................................................................................................................................
 %
 %	FOOT
 %

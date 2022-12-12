@@ -70,7 +70,7 @@
 Sensorimotor adaption tries to explain how humans learn/update a movement to new rules of an environment. Detected errors from visual and proprioceptive input are integrated. In a natural environment, these two senses align with each other, in most cases. In this experiment proposal, the congruence of the two is manipulated in a laboratory fMRI environment. It purports to study how the human brain weighs the available information to learn contralateral finger movements. It provides a method to confirm a potential learning model when the observed visual feedback is false. It is assumed that visual feedback moderates the learning rate as it diminishes the weight of one's proprioceptive feedback. The confirmed model, reproduces inequality in priority between the two senses and additionally shows the outweighing strength by vision. Activations in the left extrastriate body area underpins congruence effect in the models learning rate.
 }
 
-\keywords{Cognitive Neuroscience, model based fMRI analysis, EBA, DLPFC, Cerebellum}
+\keywords{Cognitive Neuroscience, model based fMRI analysis, EBA}
 
 
 \authornote{
@@ -111,6 +111,8 @@ The used learning model in this experimental proposal is an adapted version of t
 When a subject is tasked to move a finger A, he/she can either move finger A or any other finger. Chances are one to ten. If the subject chooses the right finger, nothing will be learned, as the prediction was correct. If the subject chooses other finger then A, then the learning rate is greater zero as the subject sees the (real) prediction error and integrate this valid piece of information to prevent the error in the next trial. Learning gets more complex as the, in reality observable, visual outcome is manipulated. The visual feedback could be either true (as in reality) or false. The latter is matter of interest as it is supposed to (a) invert the learning rate (\textit{overwrite}) or reduce the learning rate (\textit{hinderance}).
 
 If put into a contingency table of possible learning outcomes the sum of learning rates (see table \ref{tab:BasicTable}).
+
+When letters do not match in column \textit{moved} and \textit{seen}: no congruency.
 
 The error is operationalized in equation~\ref{equ:equation1} as prediction error. It is the delta between prediction and experience. In the finger paradigm, it is the expectancy to move the right finger minus the outcome if the right finger has been moved. The $t$ determines the trial index.
 
@@ -230,9 +232,9 @@ The experiment proposal falls in line with current literature of visuo-centric v
 \begin{table}
   \caption{Contingency Table Learning Outcomes}
   \label{tab:BasicTable}
-  \begin{tabular}{@{}llllllllr@{}}         \toprule
+  \begin{tabular}{@{}rrrrrrrrr@{}}         \toprule
               &           &                 &                &                &     & \multicolumn{3}{c}{Lerning rate param}        \\ \cmidrule(r){7-9}
-  Instr.\tabfnm{a}      &   Moved\tabfnm{b}   & Feedb.\tabfnm{c}          & Motor E.\tabfnm{d}       & Feedb. E.\tabfnm{e}      & EBA \tabfnm{f}& Res.\tabfnm{g}& Hind.\tabfnm{h}& Overw.\tabfnm{i}\\ \midrule
+  Instr.\tabfnm{a}      &   Moved\tabfnm{b}   & Seen\tabfnm{c}          & Motor E.\tabfnm{d}       & Feedb. E.\tabfnm{e}      & EBA \tabfnm{f}& Res.\tabfnm{g}& Hind.\tabfnm{h}& Overw.\tabfnm{i}\\ \midrule
   A           &   A       & A               & 0              & 0              & 0   & 0         & ?           & 0 \\
   A           &   A       & O               & 0              & 1              & 1   & 0         & ?           & 1 \\
   A           &   O       & A               & 0              & 0              & 1   & 1         & ?           & 0 \\
@@ -248,13 +250,13 @@ The experiment proposal falls in line with current literature of visuo-centric v
 
             \tabfnt{a}Instructed finger to move.
             \tabfnt{b}The finger that has actually been moved.
-            \tabfnt{c}The finger the subject observes in 3D googles which moves.
+            \tabfnt{c}The finger the subject observes in 3D goggles which moves.
             \tabfnt{d}Motor error.
             \tabfnt{e}Feedback error.
             \tabfnt{f}Activation in extrastriate body area
             \tabfnt{g}Learning rate parameter according to \textit{resilient} rule
             \tabfnt{h}Learning rate parameter according to \textit{hinderance} rule
-            \tabfnt{i}Learning rate parameter according to \textit{overwrite} rule
+            \tabfnt{i}Learning rate parameter according to \textit{overwrite} rule. Learning rates divided by 10 fingers, to simulate individual learning each finger. A higher value means more learning, zero means no learning.
          }
     \end{tablenotes}
 \end{table}
